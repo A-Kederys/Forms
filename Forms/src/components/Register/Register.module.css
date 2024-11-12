@@ -1,0 +1,12 @@
+@import "../../variables.css";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    
+    height: 500px;
+    width: 500px;
+    background-color: var(--color-bg);
+}
