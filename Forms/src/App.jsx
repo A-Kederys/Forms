@@ -9,9 +9,12 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Navbar activeForm={activeForm} setActiveForm={setActiveForm} />
-      {activeForm === 'login' && <Login />}
-      {activeForm === 'register' && <Register />}
+      <div className={styles.formContainer}>
+        <Navbar activeForm={activeForm} setActiveForm={setActiveForm} />
+        {activeForm === 'login' && <Login />}
+        {activeForm === 'register' && <Register />}
+      </div>
+      <div  className={styles.block}></div>
     </div>
   )
 }

@@ -1,12 +1,137 @@
 @import "../../variables.css";
 
+
+
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     color: var(--color-text);
-    
-    height: 500px;
-    width: 500px;
+    padding: 0 5vw;
     background-color: var(--color-bg);
-}
+    width: 100%;
+    height: calc(100vh - 87px);
+    padding-top: 96px;
+  }
+  
+  .heading {
+    font-size: 44px;
+    margin-bottom: 8px;
+    color: var(--color-text)
+  }
+  
+  .subheading {
+    font-size: 16px;
+    margin-bottom: 48px;
+    color: var(--color-text)
+  }
+  
+  .form {
+    width: 100%;
+    color: var(--color-text);
+    max-width: 1000px;
+  }
+  
+  .label {
+    font-size: 12px;
+    transition: 0.3s ease;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0px 0;
+    margin-bottom: 16px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: var(--color-text);
+    outline: none;
+  }
+
+  .input::placeholder {
+    transition: opacity 0.3s ease;
+  }
+
+  .input:focus::placeholder {
+    opacity: 0;
+  }
+
+  .inputGroup {
+    background-color: #192331;
+    padding: 8px 0px 0px 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid transparent;
+  }
+
+  .inputGroup:first-of-type {
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .inputGroup:focus-within .label,
+  .labelFilled,
+  .input::placeholder {
+    color: var(--color-subtext);
+  }
+  
+  .passwordContainer {
+    position: relative;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+    color: var(--color-subtext);
+    font-size: 12px;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox {
+    margin-right: 4px;
+  }
+  
+  .checkboxContainer input {
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .checkboxContainer input:checked::before {
+    content: "\2713";
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    position: absolute;
+    left: 2px;
+    top: -3px; 
+  }
+
+  .forgotPassword {
+    text-decoration: none;
+    color: var(--color-subtext)
+  }
+  
+  .loginButton {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    color: var(--color-bg);
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px  solid var(--color-bg);
+  }
+  
+  .loginButton:hover {
+    border: 1px  solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary)
+  }

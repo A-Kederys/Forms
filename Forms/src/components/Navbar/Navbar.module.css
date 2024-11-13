@@ -1,21 +1,53 @@
 @import "../../variables.css";
 
+.navbar {
+  display: flex;
+  align-items: center;
+  padding-left: 5vw;
+  background-color: var(--color-bg);
+  padding-top: 48px;
+  width: 100%;
+
+}
 .navItems {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 48px;
 }
 
 .navItems li {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #f0f0f0;
+    padding: 10px 0px;
+    color: var(--color-text);
     border: none;
     cursor: pointer;
-  }
+    position: relative;
+}
   
-  .navItems li.active {
-    font-weight: bold;
-    color: white;
-    background-color: var(--color-primary);
+.navItems li.active {
+    color: var(--color-text);
+}
+
+.navItems li.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -5px;
+  width: calc(100% + 15px);
+  height: 2px;
+  background-color: var(--color-primary);
+  animation: borderAnimation 0.3s forwards;
+  transform: translateX(-50%);
+}
+
+@keyframes borderAnimation {
+  0% {
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
+  100% {
+    width: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
