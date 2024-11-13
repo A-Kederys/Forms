@@ -1,10 +1,20 @@
 import React, { useState } from 'react'
 import styles from "./Login.module.css"
+import { EyeOpen, EyeClose } from "../../icons"
 
 function Login() {
-  const [email, setEmail] = useState('');
+  const [username, setUserame] = useState('');
   const [password, setPassword] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); 
 
+  const handleCheckboxChange = () => {
+    setIsChecked(prevState => !prevState);
+  }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState);
+  };
 
   return (
     <section className={styles.container}>
@@ -14,19 +24,19 @@ function Login() {
       <form className={styles.form}>
         <div className={styles.inputGroup}>
           <label
-            className={`${styles.label} ${email ? styles.labelFilled : ''}`}
-            htmlFor="email"
+            className={`${styles.label} ${username ? styles.labelFilled : ''}`}
+            htmlFor="username"
           >
-            Your Email
+            Vartotojo vardas
           </label>
           <input
-            type="email"
-            id="email"
+            type="text"
+            id="username"
             className={styles.input}
-            placeholder="example@mail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autocomplete="off"
+            placeholder="vardenis123"
+            value={username}
+            onChange={(e) => setUserame(e.target.value)}
+            autoComplete="off"
           />
         </div>
 
@@ -39,21 +49,35 @@ function Login() {
           </label>
           <div className={styles.passwordContainer}>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password"
               className={styles.input}
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              autocomplete="new-password"
+              autoComplete="new-password"
             />
+            <div onClick={togglePasswordVisibility} className={styles.iconContainer}>
+              {showPassword ? (
+                <EyeClose size={25} className={styles.eyeIcon} />
+              ) : (
+                <EyeOpen size={25} className={styles.eyeIcon} />
+              )}
+            </div>
           </div>
         </div>
 
         <div className={styles.options}>
           <label className={styles.checkboxContainer}>
-            <input type="checkbox" className={styles.checkbox} />
-            Remember me
+            <input
+              type="checkbox"
+              className={styles.checkbox}
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <span className={`${styles.checkbox} ${isChecked ? styles.checkedLabel : ''}`}>
+              Remember me
+            </span>
           </label>
           <a href="/" className={styles.forgotPassword}>
             Forgot Password?

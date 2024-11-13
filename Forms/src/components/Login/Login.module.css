@@ -8,9 +8,9 @@
     color: var(--color-text);
     padding: 0 5vw;
     background-color: var(--color-bg);
-    width: 100%;
+    width: 50vw;
     height: calc(100vh - 87px);
-    padding-top: 96px;
+    padding-top: 72px;
   }
   
   .heading {
@@ -32,13 +32,13 @@
   }
   
   .label {
-    font-size: 12px;
+    font-size: 16px;
     transition: 0.3s ease;
   }
   
   .input {
     width: 100%;
-    padding: 0px 0;
+    padding: 4px 0 0 0;
     margin-bottom: 16px;
     border: none;
     background-color: transparent;
@@ -71,9 +71,27 @@
   .input::placeholder {
     color: var(--color-subtext);
   }
+
+  .inputGroup:focus-within .label,
+  .labelFilled {
+    font-size: 12px;
+  }
   
   .passwordContainer {
     position: relative;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .eyeIcon {
+    color: var(--color-subtext);
+    margin-right: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .eyeIcon:hover {
+    color: var(--color-text);
   }
   
   .options {
@@ -88,10 +106,12 @@
   .checkboxContainer {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .checkbox {
     margin-right: 4px;
+    transition: color 0.3s ease;
   }
   
   .checkboxContainer input {
@@ -113,9 +133,22 @@
     top: -3px; 
   }
 
+  .checkboxContainer:hover {
+    color: var(--color-text);
+  }
+
+  .checkedLabel {
+    color: var(--color-text);
+  }
+
   .forgotPassword {
     text-decoration: none;
-    color: var(--color-subtext)
+    color: var(--color-subtext);
+    transition: color 0.3s ease;
+  }
+
+  .forgotPassword:hover {
+    color: var(--color-text)
   }
   
   .loginButton {

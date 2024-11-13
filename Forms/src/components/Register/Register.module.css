@@ -1,12 +1,114 @@
 @import "../../variables.css";
 
+
+
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     color: var(--color-text);
-    
-    height: 500px;
-    width: 500px;
+    padding: 0 5vw;
     background-color: var(--color-bg);
-}
+    width: 50vw;
+    height: calc(100vh - 87px);
+    padding-top: 72px;
+  }
+  
+  .heading {
+    font-size: 44px;
+    margin-bottom: 8px;
+    color: var(--color-text)
+  }
+  
+  .subheading {
+    font-size: 16px;
+    margin-bottom: 48px;
+    color: var(--color-text)
+  }
+  
+  .form {
+    width: 100%;
+    color: var(--color-text);
+    max-width: 1000px;
+  }
+  
+  .label {
+    font-size: 16px;
+    transition: 0.3s ease;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 4px 0 0 0;
+    margin-bottom: 16px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: var(--color-text);
+    outline: none;
+  }
+
+  .input::placeholder {
+    transition: opacity 0.3s ease;
+  }
+
+  .input:focus::placeholder {
+    opacity: 0;
+  }
+
+  .inputGroup {
+    background-color: #192331;
+    padding: 8px 0px 0px 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid transparent;
+  }
+
+  .inputGroup:first-of-type {
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .inputGroup:focus-within .label,
+  .labelFilled,
+  .input::placeholder {
+    color: var(--color-subtext);
+  }
+
+  .inputGroup:focus-within .label,
+  .labelFilled {
+    font-size: 12px;
+  }
+  
+  .passwordContainer {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .eyeIcon {
+    color: var(--color-subtext);
+    margin-right: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .eyeIcon:hover {
+    color: var(--color-text);
+  }
+  
+  .loginButton {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    color: var(--color-bg);
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px  solid var(--color-bg);
+    margin-top:  48px;
+  }
+  
+  .loginButton:hover {
+    border: 1px  solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary)
+  }

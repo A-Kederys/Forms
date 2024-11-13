@@ -21,10 +21,16 @@
     border: none;
     cursor: pointer;
     position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navItems li:hover {
+  text-shadow: 0 0 1px var(--color-text);
 }
   
 .navItems li.active {
     color: var(--color-text);
+    text-shadow: 0 0 1px var(--color-text);
 }
 
 .navItems li.active::after {

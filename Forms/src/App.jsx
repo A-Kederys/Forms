@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import Login from './components/Login/Login'
 import Navbar from './components/Navbar/Navbar'
 import Register from './components/Register/Register'
+import BlockyRoad from './banners'
 
 function App() {
   const [activeForm, setActiveForm] = useState('login');
@@ -14,7 +15,9 @@ function App() {
         {activeForm === 'login' && <Login />}
         {activeForm === 'register' && <Register />}
       </div>
-      <div  className={styles.block}></div>
+      <div  className={styles.block}>
+        <BlockyRoad className={styles.blockyRoad}/>
+      </div>
     </div>
   )
 }
