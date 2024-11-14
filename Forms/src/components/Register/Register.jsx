@@ -20,7 +20,7 @@ function Register() {
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.heading}>Sveiki Atvykę!</h2>
+      <h2 className={styles.heading}>Sveiki atvykę!</h2>
       <p className={styles.subheading}>Įveskite norimus duomenis</p>
       
       <form className={styles.form}>
@@ -47,7 +47,7 @@ function Register() {
             className={`${styles.label} ${password ? styles.labelFilled : ''}`}
             htmlFor="password"
           >
-            Password
+            Slaptažodis
           </label>
           <div className={styles.passwordContainer}>
             <input
@@ -61,9 +61,9 @@ function Register() {
             />
             <div onClick={togglePasswordVisibility} className={styles.iconContainer}>
               {showPassword ? (
-                <EyeClose size={25} className={styles.eyeIcon} />
-              ) : (
                 <EyeOpen size={25} className={styles.eyeIcon} />
+              ) : (
+                <EyeClose size={25} className={styles.eyeIcon} />
               )}
             </div>
           </div>
@@ -90,7 +90,7 @@ function Register() {
         </div>
 
         <button type="submit" className={styles.loginButton}>
-          Login
+          Registruotis
         </button>
       </form>
     </section>

@@ -18,7 +18,7 @@ function Login() {
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.heading}>Sveiki Sugrįžę!</h2>
+      <h2 className={styles.heading}>Sveiki sugrįžę!</h2>
       <p className={styles.subheading}>Įveskite savo duomenis</p>
       
       <form className={styles.form}>
@@ -45,7 +45,7 @@ function Login() {
             className={`${styles.label} ${password ? styles.labelFilled : ''}`}
             htmlFor="password"
           >
-            Password
+            Slaptažodis
           </label>
           <div className={styles.passwordContainer}>
             <input
@@ -59,9 +59,9 @@ function Login() {
             />
             <div onClick={togglePasswordVisibility} className={styles.iconContainer}>
               {showPassword ? (
-                <EyeClose size={25} className={styles.eyeIcon} />
-              ) : (
                 <EyeOpen size={25} className={styles.eyeIcon} />
+              ) : (
+                <EyeClose size={25} className={styles.eyeIcon} />
               )}
             </div>
           </div>
@@ -76,16 +76,16 @@ function Login() {
               onChange={handleCheckboxChange}
             />
             <span className={`${styles.checkbox} ${isChecked ? styles.checkedLabel : ''}`}>
-              Remember me
+              Prisiminti
             </span>
           </label>
           <a href="/" className={styles.forgotPassword}>
-            Forgot Password?
+            Pamiršote slaptažodį?
           </a>
         </div>
 
         <button type="submit" className={styles.loginButton}>
-          Login
+          Prisijungti
         </button>
       </form>
     </section>
