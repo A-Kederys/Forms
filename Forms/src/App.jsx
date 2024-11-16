@@ -15,6 +15,7 @@ function App() {
         {activeForm === 'login' && <Login />}
         {activeForm === 'register' && <Register />}
       </div>
+      <div className={styles.blur}></div>
       <div  className={styles.block}>
         <BlockyRoad className={styles.blockyRoad}/>
       </div>

@@ -7,7 +7,7 @@ const BlockyRoad = ({  className = "" }) => (
     viewBox="0 0 800 800"
     fill="currentColor"
     width="100%"
-    height="100%"
+    height="99vh"
     className={`${styles.blockyRoad} ${className}`}
 >
   <rect fill='#111822' width='100%' height='100%' />

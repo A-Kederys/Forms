@@ -1,25 +1,47 @@
 @import "./variables.css";
 
 .App {
-    background-color: var(--color-text);
-    display: flex;
+  background-color: var(--color-bg);
+  display: flex;
+  position: relative;
 }
 
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  z-index: 5;
+  position: relative;
+}
+
+.blur {
+  width: 20%;
+  background: linear-gradient(to right, var(--color-bg) 5%, rgba(255, 255, 255, 0) 80%);
+  height: 100%;
+  position: absolute;
+  right: 40%;
+  top: 0;
+  z-index: 3;
+  backdrop-filter: blur(1px);
 }
 
 .block {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .blockyRoad {
     transform: scale(2.5) rotate(-75deg);
 }
+
+@media screen and (max-width: 830px) {
+  .block, .blur {
+    display: none;
+  }
+}
+
 
 svg {
     will-change: transform;

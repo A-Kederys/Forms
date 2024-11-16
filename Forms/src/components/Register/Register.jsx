@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from "./Register.module.css"
 import { EyeOpen, EyeClose } from "../../icons"
 
@@ -17,6 +17,26 @@ function Register() {
     setShowPassword(prevState => !prevState);
   };
 
+  const usernameRef = useRef(null);
+
+  useEffect(() => {
+    // Focus the username input when the component mounts
+    if (usernameRef.current) {
+      usernameRef.current.focus();
+    }
+
+    // Add border-left to .inputGroup when there is content in input
+    const inputGroups = document.querySelectorAll(`.${styles.inputGroup}`);
+
+    inputGroups.forEach((group) => {
+      const input = group.querySelector(`.${styles.input}`);
+      if (input && input.value !== "") {
+        group.classList.add(styles.hasContent);
+      } else {
+        group.classList.remove(styles.hasContent);
+      }
+    });
+  }, []);
 
   return (
     <section className={styles.container}>
@@ -24,7 +44,7 @@ function Register() {
       <p className={styles.subheading}>Įveskite norimus duomenis</p>
       
       <form className={styles.form}>
-        <div className={styles.inputGroup}>
+        <div className={`${styles.inputGroup} ${username ? styles.hasContent : ""}`}>
           <label
             className={`${styles.label} ${username ? styles.labelFilled : ''}`}
             htmlFor="username"
@@ -39,10 +59,11 @@ function Register() {
             value={username}
             onChange={(e) => setUserame(e.target.value)}
             autoComplete="off"
+            ref={usernameRef}
           />
         </div>
 
-        <div className={styles.inputGroup}>
+        <div className={`${styles.inputGroup} ${password ? styles.hasContent : ""}`}>
         <label
             className={`${styles.label} ${password ? styles.labelFilled : ''}`}
             htmlFor="password"
@@ -69,7 +90,7 @@ function Register() {
           </div>
         </div>
 
-        <div className={styles.inputGroup}>
+        <div className={`${styles.inputGroup} ${confirmPassword ? styles.hasContent : ""}`}>
           <label
             className={`${styles.label} ${confirmPassword ? styles.labelFilled : ''}`}
             htmlFor="confirmPassword"
