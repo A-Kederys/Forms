@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import styles from "./Register.module.css"
 import { EyeOpen, EyeClose } from "../../icons"
 
-function Register() {
+function Register({ exit }) {
   const [username, setUserame] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isChecked, setIsChecked] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(prevState => !prevState);
@@ -20,12 +21,10 @@ function Register() {
   const usernameRef = useRef(null);
 
   useEffect(() => {
-    // Focus the username input when the component mounts
     if (usernameRef.current) {
       usernameRef.current.focus();
     }
 
-    // Add border-left to .inputGroup when there is content in input
     const inputGroups = document.querySelectorAll(`.${styles.inputGroup}`);
 
     inputGroups.forEach((group) => {
@@ -36,10 +35,12 @@ function Register() {
         group.classList.remove(styles.hasContent);
       }
     });
+
+    setAnimate(true);
   }, []);
 
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${animate ? styles.enter : ''} ${exit ? styles.exit : ''}`}>
       <h2 className={styles.heading}>Sveiki atvykę!</h2>
       <p className={styles.subheading}>Įveskite norimus duomenis</p>
       

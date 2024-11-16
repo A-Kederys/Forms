@@ -19,9 +19,9 @@
   background: linear-gradient(to right, var(--color-bg) 5%, rgba(255, 255, 255, 0) 80%);
   height: 100%;
   position: absolute;
-  right: 40%;
+  right: 38%;
   top: 0;
-  z-index: 3;
+  z-index: 7;
   backdrop-filter: blur(1px);
 }
 
@@ -29,7 +29,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  z-index: 0;
+  z-index: 6;
 }
 
 .blockyRoad {

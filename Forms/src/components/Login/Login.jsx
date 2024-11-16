@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import styles from "./Login.module.css"
 import { EyeOpen, EyeClose } from "../../icons"
 
-function Login() {
+function Login({ exit }) {
   const [username, setUserame] = useState('');
   const [password, setPassword] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false); 
+  const [animate, setAnimate] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(prevState => !prevState);
@@ -33,10 +34,12 @@ function Login() {
         group.classList.remove(styles.hasContent);
       }
     });
+
+    setAnimate(true);
   }, []);
 
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${animate ? styles.enter : ''} ${exit ? styles.exit : ''}`}>
       <h2 className={styles.heading}>Sveiki sugrįžę!</h2>
       <p className={styles.subheading}>Įveskite savo duomenis</p>
       

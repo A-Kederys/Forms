@@ -11,6 +11,20 @@
     width: 100%;
     height: 100%;
     padding-top: 72px;
+
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+   }
+ 
+   .container.enter {
+     transform: translateX(0);
+     opacity: 1;
+   }
+
+   .container.exit {
+    transform: translateX(-100%);
+    opacity: 0;
   }
   
   .heading {
