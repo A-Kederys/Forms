@@ -104,10 +104,10 @@ function App() {
 
           <Route
             path="/"
-            element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/Forms/" />}
+            element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/" />}
           />
           
-          <Route path="*" element={<Navigate to="/Forms" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <div className={styles.blur}></div>
         <div className={styles.block}>
