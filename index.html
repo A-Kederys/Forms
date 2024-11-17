@@ -11,13 +11,19 @@
     <script type="module" src="/src/main.jsx"></script>
 
     <script>
-      console.log("Current URL:", window.location.href);
-      console.log("Current Hash:", window.location.hash);
-      
-      if (!window.location.hash) {
-        console.log("No hash found, redirecting...");
-        window.location.href = '/Forms/#/';
-      }
+      window.onload = () => {
+        console.log("Current URL:", window.location.href);
+        console.log("Current Hash:", window.location.hash);
+        
+        if (!window.location.hash) {
+          console.log("No hash found, redirecting...");
+          
+          window.location.href = '/Forms/#/';
+        } else if (window.location.pathname !== '/Forms/' && !window.location.pathname.startsWith('/Forms/static/')) {
+          console.log("Redirecting to the root (hash route)...");
+          window.location.href = '/Forms/#/';
+        }
+      };
     </script>
   </body>
 </html>
