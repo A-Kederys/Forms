@@ -103,7 +103,7 @@ function App() {
           )}
 
           <Route
-            path="/"
+            path="/Forms"
             element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/" />}
           />
           
