@@ -65,7 +65,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/Forms">
       <div className={styles.App}>
         <Routes>
           {!isLoggedIn && (
@@ -103,11 +103,11 @@ function App() {
           )}
 
           <Route
-            path="/Forms"
-            element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/" />}
+            path="/"
+            element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/Forms/" />}
           />
           
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/Forms" />} />
         </Routes>
         <div className={styles.blur}></div>
         <div className={styles.block}>
