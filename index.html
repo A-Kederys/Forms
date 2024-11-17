@@ -9,18 +9,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-    <script>
-      (function () {
-        const basePath = '/Forms';
-        const hashIndex = window.location.href.indexOf('#');
-        const path = window.location.pathname;
-    
-        if (hashIndex === -1 && path.startsWith(basePath)) {
-          const hashPath = path.replace(basePath, '');
-          window.location.replace(`${basePath}/#${hashPath}`);
-        }
-      })();
-    </script>>
   </body>
 </html>
