@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import Register from './components/Register/Register'
 import BlockyRoad from './banners'
 import Success from './components/Success/Success'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ButtonPause, ButtonPlay } from "./icons"
 
 function App() {
@@ -65,49 +65,48 @@ function App() {
   };
 
   return (
-    <Router basename="/Forms">
+    <Router>
       <div className={styles.App}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            isLoggedIn ? (
-              <Navigate to="/success" />
-            ) : (
-              <div className={styles.formContainer}>
-                <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
-                {activeForm === 'login' ? (
-                  <Login
-                    exit={exit}
-                    setIsLoggedIn={(status) => {
-                      setIsLoggedIn(status);
-                      localStorage.setItem('isLoggedIn', status);
-                    }}
-                    setCurrentUser={(user) => {
-                      setCurrentUser(user);
-                      localStorage.setItem('currentUser', user);
-                    }}
-                  />
-                ) : (
-                  <Register exit={exit} />
-                )}
-              </div>
-            )
-          }
-        />
-        <Route
-          path="/success"
-          element={
-            isLoggedIn ? (
-              <Success username={currentUser} onLogout={handleLogout} />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/success" />
+              ) : (
+                <div className={styles.formContainer}>
+                  <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
+                  {activeForm === 'login' ? (
+                    <Login
+                      exit={exit}
+                      setIsLoggedIn={(status) => {
+                        setIsLoggedIn(status);
+                        localStorage.setItem('isLoggedIn', status);
+                      }}
+                      setCurrentUser={(user) => {
+                        setCurrentUser(user);
+                        localStorage.setItem('currentUser', user);
+                      }}
+                    />
+                  ) : (
+                    <Register exit={exit} />
+                  )}
+                </div>
+              )
+            }
+          />
+          <Route
+            path="/success"
+            element={
+              isLoggedIn ? (
+                <Success username={currentUser} onLogout={handleLogout} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
         <div className={styles.blur}></div>
         <div className={styles.block}>
           <BlockyRoad
