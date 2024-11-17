@@ -23,9 +23,11 @@
   top: 0;
   z-index: 7;
   backdrop-filter: blur(1px);
+  pointer-events: none
 }
 
 .block {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -34,6 +36,34 @@
 
 .blockyRoad {
     transform: scale(2.5) rotate(-75deg);
+}
+
+.stopButton {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 0.5vw;
+  color: var(--color-primary);
+  background-color: rgba(17, 24, 34, 0.9);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease, pointer-events 0s 0.3s;
+}
+
+.block:hover .stopButton {
+  opacity: 1; 
+  pointer-events: auto;
+}
+
+.stopButton:hover {
+  background-color: rgba(17, 24, 34, 0.7);
+  transform: scale(1.2);
+  color: var(--color-primary);
 }
 
 @media screen and (max-width: 830px) {
@@ -50,6 +80,10 @@ svg {
 line {
     transform-origin: center;
     animation: scaleAnimation 2s ease-in-out infinite;
+}
+
+.line.paused {
+  animation: none;
 }
 
 @keyframes scaleAnimation {

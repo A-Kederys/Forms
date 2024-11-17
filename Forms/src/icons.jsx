@@ -32,5 +32,45 @@ const EyeOpen = ({ color = "currentColor", size = 24, className = "" }) => (
       <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
     </svg>
   );
+
+  const ButtonPause = ({ color = "currentColor", size = 24, className = "" }) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke={color}
+      width={`${size}vw`}
+      height={`${size}vw`}
+      className={className}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
+      />
+    </svg>
+  );
+
+  const ButtonPlay = ({ color = "currentColor", size = 24, className = "" }) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke={color}
+      width={`${size}vw`}
+      height={`${size}vw`}
+      className={className}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+      />
+    </svg>
+  );
   
-  export { EyeOpen, EyeClose };;
+  
+  
+  export { EyeOpen, EyeClose, ButtonPause, ButtonPlay };;

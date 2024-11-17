@@ -117,7 +117,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 48px;
     color: var(--color-subtext);
     font-size: 12px;
   }
@@ -181,12 +180,19 @@
     transition: 0.3s;
     border: 1px  solid var(--color-bg);
     margin-bottom: 24px;
+    margin-top: 24px;
   }
   
   .loginButton:hover {
     border: 1px  solid var(--color-primary);
     background-color: transparent;
     color: var(--color-primary)
+  }
+
+  .error {
+    color: var(--color-subtext);
+    margin-top: 12px;
+    font-size: 16px;
   }
 
   @media screen and (max-width: 830px) {
