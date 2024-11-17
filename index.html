@@ -12,8 +12,8 @@
     <div id="root"></div>
 
     <script>
-      if (!window.location.hash) {
-          window.location.href = '/Forms/#/';
+      if (!window.location.hash || window.location.pathname === '/Forms') {
+        window.location.href = '/Forms/#/';
       }
     </script>
   </body>
