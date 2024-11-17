@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import Register from './components/Register/Register'
 import BlockyRoad from './banners'
 import Success from './components/Success/Success'
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ButtonPause, ButtonPlay } from "./icons"
 
 function App() {
@@ -65,48 +65,42 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/Forms">
       <div className={styles.App}>
-        <Routes>
+      <Routes>
+        {!isLoggedIn ? (
           <Route
             path="/"
             element={
-              isLoggedIn ? (
-                <Navigate to="/success" />
-              ) : (
-                <div className={styles.formContainer}>
-                  <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
-                  {activeForm === 'login' ? (
-                    <Login
-                      exit={exit}
-                      setIsLoggedIn={(status) => {
-                        setIsLoggedIn(status);
-                        localStorage.setItem('isLoggedIn', status);
-                      }}
-                      setCurrentUser={(user) => {
-                        setCurrentUser(user);
-                        localStorage.setItem('currentUser', user);
-                      }}
-                    />
-                  ) : (
-                    <Register exit={exit} />
-                  )}
-                </div>
-              )
+              <div className={styles.formContainer}>
+                <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
+                {activeForm === 'login' ? (
+                  <Login
+                    exit={exit}
+                    setIsLoggedIn={(status) => {
+                      setIsLoggedIn(status);
+                      localStorage.setItem('isLoggedIn', status);
+                    }}
+                    setCurrentUser={(user) => {
+                      setCurrentUser(user);
+                      localStorage.setItem('currentUser', user);
+                    }}
+                  />
+                ) : (
+                  <Register exit={exit} />
+                )}
+              </div>
             }
           />
+        ) : (
           <Route
             path="/success"
-            element={
-              isLoggedIn ? (
-                <Success username={currentUser} onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
+            element={<Success username={currentUser} onLogout={handleLogout} />}
           />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        )}
+        <Route path="*" element={<Navigate to={isLoggedIn ? "/success" : "/"} />} />
+      </Routes>
+
         <div className={styles.blur}></div>
         <div className={styles.block}>
           <BlockyRoad
