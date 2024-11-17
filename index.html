@@ -5,16 +5,23 @@
     <link rel="icon" type="image/png" href="/Forms/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome</title>
-    <script type="module" crossorigin src="/Forms/assets/index-CS8JKQMw.js"></script>
+    <script type="module" crossorigin src="/Forms/assets/index-BERDe3C0.js"></script>
     <link rel="stylesheet" crossorigin href="/Forms/assets/index-Chxr27AJ.css">
   </head>
   <body>
     <div id="root"></div>
 
     <script>
-      if (window.location.pathname !== '/Forms/' && !window.location.pathname.startsWith('/Forms/static/')) {
-        window.location.href = '/Forms/';
-      }
-    </script>
+      (function () {
+        const basePath = '/Forms';
+        const hashIndex = window.location.href.indexOf('#');
+        const path = window.location.pathname;
+    
+        if (hashIndex === -1 && path.startsWith(basePath)) {
+          const hashPath = path.replace(basePath, '');
+          window.location.replace(`${basePath}/#${hashPath}`);
+        }
+      })();
+    </script>>
   </body>
 </html>
