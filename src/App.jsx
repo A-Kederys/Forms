@@ -68,10 +68,12 @@ function App() {
     <Router basename="/Forms">
       <div className={styles.App}>
       <Routes>
-        {!isLoggedIn ? (
-          <Route
-            path="/"
-            element={
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/success" />
+            ) : (
               <div className={styles.formContainer}>
                 <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
                 {activeForm === 'login' ? (
@@ -90,15 +92,20 @@ function App() {
                   <Register exit={exit} />
                 )}
               </div>
-            }
-          />
-        ) : (
-          <Route
-            path="/success"
-            element={<Success username={currentUser} onLogout={handleLogout} />}
-          />
-        )}
-        <Route path="*" element={<Navigate to={isLoggedIn ? "/success" : "/"} />} />
+            )
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            isLoggedIn ? (
+              <Success username={currentUser} onLogout={handleLogout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
         <div className={styles.blur}></div>
         <div className={styles.block}>
