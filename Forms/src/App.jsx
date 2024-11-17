@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './App.module.css'
 import Login from './components/Login/Login'
 import Navbar from './components/Navbar/Navbar'
@@ -8,13 +8,27 @@ import BlockyRoad from './banners'
 function App() {
   const [activeForm, setActiveForm] = useState('login');
   const [exit, setExit] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 830px)');
+    const handleMediaChange = () => setIsSmallScreen(mediaQuery.matches);
+    handleMediaChange();
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => mediaQuery.removeEventListener('change', handleMediaChange);
+  }, []);
 
   const handleFormChange = (form) => {
-    setExit(true);
-    setTimeout(() => {
+    if (isSmallScreen) {
       setActiveForm(form);
-      setExit(false);
-    }, 500);
+    } else {
+      setExit(true);
+      setTimeout(() => {
+        setActiveForm(form);
+        setExit(false);
+      }, 250);
+    }
   };
 
   return (
