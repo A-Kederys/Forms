@@ -67,48 +67,39 @@ function App() {
   return (
     <Router basename="/Forms">
       <div className={styles.App}>
-        <Routes>
-          {!isLoggedIn && (
-            <>
-              <Route
-                path="/"
-                element={
-                  <div className={styles.formContainer}>
-                    <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
-                    {activeForm === 'login' && (
-                      <Login
-                        exit={exit}
-                        setIsLoggedIn={(status) => {
-                          setIsLoggedIn(status);
-                          localStorage.setItem('isLoggedIn', status);
-                        }}
-                        setCurrentUser={(user) => {
-                          setCurrentUser(user);
-                          localStorage.setItem('currentUser', user);
-                        }}
-                      />
-                    )}
-                    {activeForm === 'register' && <Register exit={exit} />}
-                  </div>
-                }
-              />
-            </>
-          )}
-
-          {isLoggedIn && (
-            <Route
-              path="/success"
-              element={<Success username={currentUser} onLogout={handleLogout} />}
+      <Routes>
+  {!isLoggedIn ? (
+    <Route
+      path="/"
+      element={
+        <div className={styles.formContainer}>
+          <Navbar activeForm={activeForm} setActiveForm={handleFormChange} />
+          {activeForm === 'login' ? (
+            <Login
+              exit={exit}
+              setIsLoggedIn={(status) => {
+                setIsLoggedIn(status);
+                localStorage.setItem('isLoggedIn', status);
+              }}
+              setCurrentUser={(user) => {
+                setCurrentUser(user);
+                localStorage.setItem('currentUser', user);
+              }}
             />
+          ) : (
+            <Register exit={exit} />
           )}
-
-          <Route
-            path="/"
-            element={isLoggedIn ? <Navigate to="/success" /> : <Navigate to="/" />}
-          />
-          
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        </div>
+      }
+    />
+  ) : (
+    <Route
+      path="/success"
+      element={<Success username={currentUser} onLogout={handleLogout} />}
+    />
+  )}
+  <Route path="*" element={<Navigate to={isLoggedIn ? "/success" : "/"} />} />
+</Routes>
         <div className={styles.blur}></div>
         <div className={styles.block}>
           <BlockyRoad 
