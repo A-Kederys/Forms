@@ -11,8 +11,8 @@
     <script type="module" src="/src/main.jsx"></script>
 
     <script>
-      if (window.location.pathname !== '/Forms/' && !window.location.pathname.startsWith('/Forms/static/')) {
-        window.location.href = '/Forms/#/';
+      if (!window.location.hash) {
+          window.location.href = '/Forms/#/';
       }
     </script>
   </body>
