@@ -12,7 +12,11 @@
     <div id="root"></div>
 
     <script>
-      if (!window.location.hash || window.location.pathname === '/Forms') {
+      console.log("Current URL:", window.location.href);
+      console.log("Current Hash:", window.location.hash);
+      
+      if (!window.location.hash) {
+        console.log("No hash found, redirecting...");
         window.location.href = '/Forms/#/';
       }
     </script>
