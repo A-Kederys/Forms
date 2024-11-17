@@ -10,5 +10,11 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <script>
+      if (window.location.pathname !== '/Forms/' && !window.location.pathname.startsWith('/Forms/static/')) {
+        window.location.href = '/Forms/#/';
+      }
+    </script>
   </body>
 </html>
