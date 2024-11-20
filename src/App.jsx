@@ -28,7 +28,7 @@ function App() {
     if (savedAnimationState !== null) {
       setIsAnimating(savedAnimationState === 'true');
     } else {
-      setIsAnimating(true);
+      setIsAnimating(false);
     }
 
     const mediaQuery = window.matchMedia('(max-width: 830px)');
