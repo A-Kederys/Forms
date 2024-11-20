@@ -7,10 +7,13 @@
   </head>
   <body>
     <script>
-      const hashRoute = window.location.pathname.replace('/Forms/', '#/');
-      const newUrl = '/Forms/' + hashRoute;
-
-      window.location.href = newUrl;
+      const currentPath = window.location.pathname;
+      
+      if (!currentPath.includes("/Forms/")) {
+        window.location.href = '/Forms/';
+      } else {
+        window.location.href = currentPath;
+      }
     </script>
   </body>
 </html>
