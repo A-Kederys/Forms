@@ -8,11 +8,11 @@
   <body>
     <script>
       const currentPath = window.location.pathname;
-      
-      if (!currentPath.includes("/Forms/")) {
+
+      if (currentPath === '/Forms' || currentPath.startsWith('/Forms/')) {
         window.location.href = '/Forms/';
       } else {
-        window.location.href = currentPath;
+        window.location.href = '/Forms/';
       }
     </script>
   </body>
